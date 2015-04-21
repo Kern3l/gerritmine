@@ -22,8 +22,6 @@ THE SOFTWARE.
 
 var GerritMine = GerritMine || {};
 
-GerritMine.parameters = GerritMine.getParameters();
-
 GerritMine.getParameters = function() {
     // Source: http://feather.elektrum.org/book/src.html
     var scripts = document.getElementsByTagName('script');
@@ -32,6 +30,8 @@ GerritMine.getParameters = function() {
     var queryString = thisScriptNode.src.replace(/^[^\?]+\??/,'');
     return $.deparam(queryString);
 };
+
+GerritMine.parameters = GerritMine.getParameters();
 
 $(function() {
     var GERRIT_SERVER = GerritMine.parameters.gerrit_server;
